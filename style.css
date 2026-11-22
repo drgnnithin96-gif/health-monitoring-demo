@@ -1,0 +1,78 @@
+/* House style for the Healthy Schools tracker demo.
+   Loaded after each page's own styles. Plain and dense on purpose:
+   this is a working register for programme staff, not a brochure. */
+:root, :root[data-theme] {
+  --paper:#f5f5f1; --sheet:#ffffff; --ink:#23262a; --ink2:#5e636a; --rule:#cdcdc5; --rule2:#e4e4dd;
+  --band:#ffffff; --band-ink:#23262a; --accent:#2f6a4f; --accent-ink:#ffffff; --link:#1d5ea8; --focus:#c98a00;
+  --ok:#2e7d32; --ok-bg:#e8f2e8; --bad:#b3261e; --bad-bg:#f9e7e5; --wait:#8a6100; --wait-bg:#fbf1d8; --warn:#b07800; --mute:#9a9e95;
+  --series:#2f6a4f; --s1:#2f6a4f; --s2:#c0662b; --s3:#4a7fb5; --s4:#b08a1e; --s5:#8a5a8f;
+  --display: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+body { font-size:15px; line-height:1.45; }
+h1,h2,h3 { font-weight:600; letter-spacing:0; }
+h1 { font-size:1.35rem } h2 { font-size:1.02rem } h3 { font-size:.95rem }
+
+/* header */
+.band { border-bottom:1px solid var(--rule); border-top:4px solid var(--accent); }
+.band .in { padding:.6rem 1rem; }
+.brand { font-size:1.1rem; font-weight:700; }
+.brand small { font-size:.8rem; color:var(--ink2); opacity:1; }
+.band a, .band .linkbtn { color:var(--link); }
+
+/* demo note and footer */
+#demo-note { background:#fff6d6; border-bottom:1px solid #e6d38f; color:#4d3d00; font-size:13px; padding:5px 16px; }
+#demo-note a { color:#4d3d00; }
+#demo-foot { max-width:1180px; margin:2.5rem auto 1rem; padding:10px 16px 0; border-top:1px solid var(--rule); color:var(--ink2); font-size:13px; }
+
+/* controls */
+.btn { border:1px solid #b9bab2; border-radius:3px; min-height:36px; padding:.35rem .85rem; font-weight:600; background:#fbfbf9; box-shadow:0 1px 0 rgba(0,0,0,.04); }
+.btn:hover { background:#f0f0ec; }
+.btn.primary { background:var(--accent); border-color:#265a42; }
+.btn.primary:hover { background:#285c44; }
+.btn.quiet { border-color:#cfcfc8; font-weight:500; }
+.btn.sm { min-height:30px; padding:.2rem .6rem; font-size:.85rem; }
+.field input, .field select, .field textarea, .cellin { border:1px solid #a9aaa2; border-radius:3px; min-height:38px; }
+.seg { border:1px solid #a9aaa2; border-radius:3px; }
+.seg button { min-height:34px; }
+.chip { border:1px solid #a9aaa2; border-radius:3px; min-height:40px; min-width:40px; font-weight:600; }
+.chip[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+.pill { border-radius:3px; font-weight:600; font-size:.78rem; }
+.linkbtn { min-height:0; padding:.2rem 0; }
+
+/* dashboard layout */
+.dash { padding-top:.9rem; }
+.tabs { gap:0; border-bottom:1px solid var(--rule); margin-bottom:1rem; }
+.tabs button { padding:.5rem .9rem; min-height:38px; border-bottom:2px solid transparent; margin-bottom:-1px; color:var(--ink2); }
+.tabs button[aria-selected="true"] { border-color:var(--ink); color:var(--ink); font-weight:600; background:var(--sheet); border-left:1px solid var(--rule); border-right:1px solid var(--rule); border-top:1px solid var(--rule); border-bottom-color:var(--sheet); }
+.grid { gap:.8rem; }
+.tile, .sheet { border:1px solid var(--rule); border-radius:3px; padding:.85rem 1rem 1rem; }
+.tile .sub { font-size:.84rem; margin-bottom:.6rem; }
+.kpis { border:1px solid var(--rule); background:var(--sheet); border-radius:3px; }
+.kpis div { padding:.55rem .9rem .6rem; border-right:1px solid var(--rule2); }
+.kpis div:last-child { border-right:0; }
+.kpis b { font-size:1.45rem; font-weight:600; }
+.kpis span { font-size:.82rem; }
+.count4, .tally { border-top:1px solid var(--rule); }
+.count4 b, .tally b { font-size:1.3rem; font-weight:600; }
+th { font-weight:600; font-size:.82rem; background:#f0f0eb; }
+th, td { padding:.4rem .55rem; border-bottom:1px solid var(--rule2); }
+.reg { border:1px solid var(--rule); }
+.reg th { background:#ecece6; }
+.reg .sch td { background:#f7f7f3; font-weight:600; font-size:.95rem; }
+.cell { height:34px; min-width:34px; font-size:1rem; }
+.qcard { border:1px solid var(--rule); border-left:4px solid var(--wait); border-radius:3px; }
+.qcard.red { border-left-color:var(--bad); }
+dialog { border:1px solid #8f9089; border-radius:4px; box-shadow:0 8px 30px rgba(0,0,0,.18); }
+.alert, .goodbox { border-width:1px; border-radius:3px; }
+.thumb, .face { border-radius:2px; border:1px solid var(--rule); }
+.meter, .beads i, .steps i { border-radius:0; }
+#tip { border-radius:2px; }
+
+/* field app on a phone */
+.phone .btn { min-height:44px; }
+.phone .field input, .phone .field select { min-height:44px; }
+.nav { border-top:1px solid var(--rule); }
+.nav button { min-height:52px; border-top:3px solid transparent; }
+.nav button[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); }
+body:has(.nav) #demo-foot { margin-bottom:76px; }

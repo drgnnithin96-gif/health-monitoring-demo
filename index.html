@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Healthy Schools tracker (demo) | Nithin G N</title>
+<meta name="description" content="Demo of a session tracker built for a school-based diabetes prevention programme in India. Dummy data only.">
+<style>
+  body { margin:0; background:#f5f5f1; color:#23262a; font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .top { border-top:4px solid #2f6a4f; background:#fff; border-bottom:1px solid #cdcdc5; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+  .top .wrap { padding-top:18px; padding-bottom:16px; }
+  h1 { font-size:1.6rem; margin:0 0 2px; }
+  .by { color:#5e636a; margin:0; font-size:.95rem; }
+  h2 { font-size:1.1rem; margin:2rem 0 .4rem; }
+  p { margin:.5rem 0; }
+  a { color:#1d5ea8; }
+  .note { background:#fff6d6; border:1px solid #e6d38f; color:#4d3d00; padding:8px 12px; font-size:.9rem; margin-top:1.4rem; }
+  .open { display:flex; flex-wrap:wrap; gap:12px; margin:1rem 0 .4rem; }
+  .open a { display:block; flex:1 1 260px; background:#fff; border:1px solid #b9bab2; padding:12px 14px; text-decoration:none; color:#23262a; }
+  .open a:hover { border-color:#2f6a4f; background:#fbfdfb; }
+  .open b { display:block; color:#2f6a4f; }
+  .open span { font-size:.9rem; color:#5e636a; }
+  table { border-collapse:collapse; width:100%; background:#fff; font-size:.93rem; margin:.6rem 0; }
+  th, td { border:1px solid #d8d8d0; padding:6px 9px; text-align:left; vertical-align:top; }
+  th { background:#ecece6; font-weight:600; }
+  ol { padding-left:1.3rem; } li { margin:.25rem 0; }
+  footer { margin:2.5rem 0 1.5rem; padding-top:10px; border-top:1px solid #cdcdc5; color:#5e636a; font-size:.88rem; }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <h1>Healthy Schools tracker</h1>
+  <p class="by">A working demo by Dr Nithin G N</p>
+</div></div>
+
+<div class="wrap">
+  <p class="note">This is a public demo. Every school, name, number and photo in it is made up. Anything you enter stays in your own browser and is not sent anywhere.</p>
+
+  <h2>What it is for</h2>
+  <p>Arogya World's Healthy Schools Program teaches diabetes prevention to students in Classes 6 and 7 through 10 activities run over two years. Field coordinators from partner NGOs run the activities in government schools, with a gap of at least 15 days between one activity and the next.</p>
+  <p>Until this year, coordinators reported each session by posting a photo in a WhatsApp group with the school name, activity number and number of students. We had no way of knowing whether a photo had been sent before, whether the coordinator was actually at the school, or whether the counts were right. A daily Google Form helped a little, but someone still had to go through it by hand every day.</p>
+  <p>I built this tracker to replace that. The coordinator logs the session on a phone, the app runs the basic checks, and a manager decides whether the session counts.</p>
+
+  <h2>Try it</h2>
+  <div class="open">
+    <a href="healthy-schools/dashboard/"><b>Manager dashboard</b><span>Activity register by class, sessions waiting for review, flags sent back to partners, and coordinator totals.</span></a>
+    <a href="healthy-schools/field/"><b>Coordinator app</b><span>What a field coordinator sees on their phone. Pick any name and use PIN 1234.</span></a>
+  </div>
+  <p style="font-size:.92rem;color:#5e636a">Both open with sample data already loaded. A good place to start is the Review tab on the dashboard.</p>
+
+  <h2>What the app checks</h2>
+  <p>None of these checks reject a session on their own. They add a note so the manager knows what to look at.</p>
+  <table>
+    <tr><th>Check</th><th>Why</th></tr>
+    <tr><td>Logged more than 150 m from the school</td><td>The coordinator may not have been at the school.</td></tr>
+    <tr><td>Session shorter than 30 minutes</td><td>An activity cannot be done properly in less.</td></tr>
+    <tr><td>Photo matches one already sent</td><td>Catches an old photo being sent again, even after resizing.</td></tr>
+    <tr><td>More students than are enrolled in the class</td><td>Catches inflated counts.</td></tr>
+    <tr><td>Less than 15 days since the class's last activity</td><td>Keeps to the programme's spacing rule.</td></tr>
+  </table>
+
+  <h2>How a session moves through it</h2>
+  <ol>
+    <li>The coordinator picks the school, class and activity number, enters how many students were present and takes a photo. The app records the time and location.</li>
+    <li>If a session could not be held (exams, a holiday, school closed), the coordinator logs that with a reason instead of leaving a gap.</li>
+    <li>The session waits in the Review list. A manager at Arogya World or the partner NGO looks at it, with any notes from the checks, and marks it as counted or not counted.</li>
+    <li>Arogya World managers can flag a session back to the partner with a comment. The partner manager sees the flag and replies.</li>
+    <li>The register fills in class by class, so it is easy to see which schools are falling behind on the 10 activities.</li>
+  </ol>
+
+  <h2>About the build</h2>
+  <p>Plain HTML and JavaScript, no framework. The field app works on any phone browser and can be added to the home screen. In the live version, data goes to a small online database with separate logins for coordinators, partner managers and Arogya World staff; coordinators cannot see the dashboard. This demo keeps everything in the browser instead.</p>
+
+  <footer>
+    Built by Dr Nithin G N for the Healthy Schools Program at Arogya World India Trust. This public copy uses dummy data and is not an official Arogya World tool.
+    <a href="https://www.linkedin.com/in/dr-nithin-g-n-868808218/">LinkedIn</a>
+  </footer>
+</div>
+</body>
+</html>
